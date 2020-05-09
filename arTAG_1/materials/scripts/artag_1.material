@@ -1,0 +1,15 @@
+material arTAG_1/Image
+{
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture MarkerData_1.png
+      }
+    }
+  }
+}
+
+
