@@ -1,7 +1,8 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
-  <model name="arTAG_0">
+  <model name="arTAG_1">
     <pose>0 0 0.2 0 0 0</pose>
+
     <link name="box">
       <pose>0 0 0 0 0 0</pose>
       <collision name="collision">
@@ -19,13 +20,83 @@
         </geometry>
         <material>
           <script>
-            <uri>model://arTAG_0/materials/scripts</uri>
-            <uri>model://arTAG_0/materials/textures</uri>
-            <name>arTAG_0/Image</name>
+            <uri>model://arTAG_1/materials/scripts</uri>
+            <uri>model://arTAG_1/materials/textures</uri>
+            <name>arTAG_1/Image</name>
           </script>
         </material>
       </visual>
     </link>
+
+    <link name="right_cover">
+      <pose>0 -0.205 0 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.4 0.01 0.4</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.4 0.01 0.4</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="left_cover">
+      <pose>0 0.205 0 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.4 0.01 0.4</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.4 0.01 0.4</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+
+    <link name="back_cover">
+      <pose>-0.205 0 0 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.01 0.42 0.4</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.01 0.42 0.4</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint type="fixed" name="box_left">
+      <parent>box</parent>
+      <child>left_cover</child>
+    </joint>
+
+    <joint type="fixed" name="box_right">
+      <parent>box</parent>
+      <child>right_cover</child>
+    </joint>
+
+    <joint type="fixed" name="box_back">
+      <parent>box</parent>
+      <child>back_cover</child>
+    </joint>
+
   </model>
 </sdf>
 
